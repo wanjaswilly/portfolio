@@ -1,0 +1,115 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+	<script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+</head>
+
+<body>
+	<div class="bg-background">
+		<header class="bg-blue-600 p-4 py-6 flex justify-between items-center">
+			<div class="flex items-center space-x-2">
+				<a href="{{url_for('home')}}" class="text-white hover:underline lg:pl-2">
+					<div class="bg-red-500 w-8 h-8 rounded-full lg:ml-2">
+
+					</div>
+				</a>
+				<a href="{{url_for('home')}}" class="text-white hover:underline lg:pl-2 pr-3">Wanjaswilly</a>
+				<nav class="space-x-4 lg:pl-10 flex">
+					<a href="{{url_for('blog.index')}}" class="text-white hover:underline">Home</a>
+					<a href="{{url_for('blog.categories')}}" class="text-white hover:underline">Categories</a>
+					<a href="{{url_for('blog.categories')}}" class="text-white hidden md:block hover:underline">Top Views</a>
+					<a href="{{url_for('blog.categories')}}" class="text-white hidden md:block hover:underline">Sponsored</a>
+				</nav>
+			</div>
+			<div class="flex space-x-2">
+				<button class="bg-cyan-400 rounded-xl px-2 py-1 font-bold text-sm md:text-lg">signup</button>
+				<button class="bg-cyan-400 rounded-xl px-2 py-1 text-sm md:text-lg">login</button>
+			</div>
+		</header>
+
+		<main class="mt-4 px-5 lg:px-8">
+			{% for message in get_flashed_messages() %}
+			<div class="flash">{{ message }}</div>
+			{% endfor %}
+			<div class="flex w-full flex-col lg:flex-row flex-glow lg:space-x-5">
+				<div class="bg-zinc-300 h-64 w-full lg:w-[78%]">
+					<section class="content mt-50 mb-50 p-5">
+						<header>
+							{% block header %}{% endblock %}
+						</header>
+						{% block content %}{% endblock %}
+					</section>
+				</div>
+				<div class="flex flex-col space-y-4 mt-4 lg:mt-0 w-full lg:w-[22%]">
+					<div class="bg-zinc-300 h-32 w-full rounded-lg"></div>
+					<div class="bg-zinc-300 h-32 w-full rounded-lg"></div>
+					<div class="bg-zinc-300 h-32 w-full rounded-lg"></div>
+				</div>
+			</div>
+		</main>
+		<hr class="my-6 mx-8">
+		<section class="px-5 lg:px-8">
+			<h2 class="text-lg font-semibold">Comments</h2>
+			<hr class="my-3">
+			<div class="flex items-center space-x-2 mt-2">
+				<div class="bg-zinc-400 w-8 h-8 rounded-full"></div>
+				<p class="text-muted-foreground">this is a dummy comment for this post.</p>
+			</div>
+			<div class="flex space-x-2 mt-2">
+				<button class="bg-blue-500 text-white px-2 rounded">Like</button>
+				<button class="bg-red-500 text-white px-2 rounded">Dislike</button>
+			</div>
+			<hr class="my-3">
+		</section>
+		<section class="mt-8 px-5 lg:px-8">
+			<h2 class="text-lg font-semibold">Related Posts</h2>
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-2">
+				<div class="h-38 w-full rounded-lg">
+					<div class="bg-zinc-300 h-28 w-full rounded-lg"></div>
+					<h4 class="py-3">this is a post text for this awesome post that you can continue to read. you wanna
+						know more?</h4>
+				</div>
+				<div class="h-38 w-full rounded-lg">
+					<div class="bg-zinc-300 h-28 w-full rounded-lg"></div>
+					<h4 class="py-3">this is a post text for this awesome post that you can continue to read. you wanna
+						know more?</h4>
+				</div>
+				<div class="h-38 w-full rounded-lg">
+					<div class="bg-zinc-300 h-28 w-full rounded-lg"></div>
+					<h4 class="py-3">this is a post text for this awesome post that you can continue to read. you wanna
+						know more?</h4>
+				</div>
+				<div class="h-38 w-full rounded-lg">
+					<div class="bg-zinc-300 h-28 w-full rounded-lg"></div>
+					<h4 class="py-3">this is a post text for this awesome post that you can continue to read. you wanna
+						know more?</h4>
+				</div>
+				<div class="h-38 w-full rounded-lg">
+					<div class="bg-zinc-300 h-28 w-full rounded-lg"></div>
+					<h4 class="py-3">this is a post text for this awesome post that you can continue to read. you wanna
+						know more?</h4>
+				</div>
+				<div class="h-38 w-full rounded-lg">
+					<div class="bg-zinc-300 h-28 w-full rounded-lg"></div>
+					<h4 class="py-3">this is a post text for this awesome post that you can continue to read. you wanna
+						know more?</h4>
+				</div>
+			</div>
+		</section>
+
+		<footer class="mt-8 bg-black text-center text-md text-white py-12">
+			<p>
+				<a href="#">Terms & Conditions</a> |
+				<a href="#">Privacy Policy</a> |
+				<a href="#">Legal</a> |
+				<a href="#">Hire Me</a>
+			</p>
+			<p>wanjaswilly.site | &copy; 2024</p>
+		</footer>
+	</div>
+</body>
+
+</html>
